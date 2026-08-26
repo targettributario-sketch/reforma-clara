@@ -1,4 +1,4 @@
-import { Radio, Headphones, Music } from "lucide-react";
+import { Radio, Headphones } from "lucide-react";
 
 function SpotifyIcon({ className }: { className?: string }) {
   return (
