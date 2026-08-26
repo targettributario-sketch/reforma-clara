@@ -12,4 +12,6 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Build for a Node.js server so Railway can run the generated output directly.
+  nitro: { preset: "node-server" },
 });
