@@ -57,17 +57,19 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="relative hidden lg:block">
-            <div className="absolute -inset-4 rounded-3xl bg-cyan/20 blur-3xl" />
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-sm">
-              <img
-                src="/images/hero-reforma.jpg"
-                alt="Ilustração abstrata sobre reforma tributária e dados fiscais"
-                className="aspect-[4/3] w-full rounded-xl object-cover"
-                width={800}
-                height={600}
-              />
-              <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-white/10 bg-navy/80 p-4 backdrop-blur-md">
+          <div className="relative hidden lg:flex lg:justify-center">
+            <div className="absolute inset-0 rounded-full bg-cyan/25 blur-3xl" />
+            <div className="relative w-full max-w-md">
+              <div className="aspect-square overflow-hidden rounded-full border-4 border-white/10 bg-navy shadow-2xl shadow-cyan/20">
+                <img
+                  src={capaPodcast.url}
+                  alt="Capa do podcast Reforma Tributária Descomplicada no Spotify"
+                  className="h-full w-full object-cover"
+                  width={600}
+                  height={600}
+                />
+              </div>
+              <div className="absolute -bottom-6 left-1/2 w-[90%] -translate-x-1/2 rounded-xl border border-white/10 bg-navy/90 p-4 shadow-xl backdrop-blur-md">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan text-cyan-foreground">
                     <Play className="h-4 w-4 fill-current" aria-hidden="true" />
