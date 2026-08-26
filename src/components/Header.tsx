@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { Menu, X, Scale, Newspaper, BookOpen, Radio, Mail, Home } from "lucide-react";
 
 const navItems = [
@@ -11,9 +11,13 @@ const navItems = [
   { to: "/newsletter", label: "Newsletter", icon: Mail },
 ];
 
+const linkBaseClass =
+  "flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors";
+const linkInactiveClass = "text-muted-foreground hover:bg-secondary hover:text-foreground";
+const linkActiveClass = "bg-secondary text-foreground";
+
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
@@ -33,24 +37,17 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
-          {navItems.map((item) => {
-            const active = pathname === item.to;
-            return (
-              <Link
-                key={item.to}
-                to={item.to}
-                activeProps={{ className: "text-foreground bg-secondary" }}
-                className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
-                  active
-                    ? "bg-secondary text-foreground"
-                    : "text-muted-foreground hover:bg-secondary hover:text-foreground"
-                }`}
-              >
-                <item.icon className="h-4 w-4" aria-hidden="true" />
-                {item.label}
-              </Link>
-            );
-          })}
+          {navItems.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              activeProps={{ className: `${linkBaseClass} ${linkActiveClass}` }
+              inactiveProps={{ className: `${linkBaseClass} ${linkInactiveClass}` }}
+            >
+              <item.icon className="h-4 w-4" aria-hidden="true" />
+              {item.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="hidden lg:block">
@@ -76,24 +73,18 @@ export function Header() {
       {mobileOpen && (
         <div className="border-t border-border/60 bg-background lg:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-3 sm:px-6">
-            {navItems.map((item) => {
-              const active = pathname === item.to;
-              return (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => setMobileOpen(false)}
-                  className={`flex items-center gap-3 rounded-md px-3 py-3 text-sm font-medium transition-colors ${
-                    active
-                      ? "bg-secondary text-foreground"
-                      : "text-muted-foreground hover:bg-secondary hover:text-foreground"
-                  }`}
-                >
-                  <item.icon className="h-4 w-4" aria-hidden="true" />
-                  {item.label}
-                </Link>
-              );
-            })}
+            {navItems.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                onClick={() => setMobileOpen(false)}
+                activeProps={{ className: `${linkBaseClass} ${linkActiveClass}` }
+                inactiveProps={{ className: `${linkBaseClass} ${linkInactiveClass}` }}
+              >
+                <item.icon className="h-4 w-4" aria-hidden="true" />
+                {item.label}
+              </Link>
+            ))}
             <Link
               to="/newsletter"
               onClick={() => setMobileOpen(false)}
