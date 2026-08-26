@@ -41,7 +41,7 @@ export function Header() {
             <Link
               key={item.to}
               to={item.to}
-              activeProps={{ className: `${linkBaseClass} ${linkActiveClass}` }
+              activeProps={{ className: `${linkBaseClass} ${linkActiveClass}` }}
               inactiveProps={{ className: `${linkBaseClass} ${linkInactiveClass}` }}
             >
               <item.icon className="h-4 w-4" aria-hidden="true" />
@@ -78,7 +78,7 @@ export function Header() {
                 key={item.to}
                 to={item.to}
                 onClick={() => setMobileOpen(false)}
-                activeProps={{ className: `${linkBaseClass} ${linkActiveClass}` }
+                activeProps={{ className: `${linkBaseClass} ${linkActiveClass}` }}
                 inactiveProps={{ className: `${linkBaseClass} ${linkInactiveClass}` }}
               >
                 <item.icon className="h-4 w-4" aria-hidden="true" />
