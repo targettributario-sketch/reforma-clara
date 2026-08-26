@@ -104,6 +104,10 @@ if (typeof handler === "function" && handler.length >= 2) {
 else if (handler && typeof handler.fetch === "function") {
   startNodeServer(async (req, res) => {
     try {
+      // Serve public assets directly when running an edge-preset build locally.
+      const staticServed = await serveStatic(req, res);
+      if (staticServed) return;
+
       const request = nodeRequestToFetchRequest(req);
       const response = await handler.fetch(
         request,
