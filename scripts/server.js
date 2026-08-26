@@ -105,7 +105,7 @@ else if (handler && typeof handler.fetch === "function") {
   startNodeServer(async (req, res) => {
     try {
       const request = nodeRequestToFetchRequest(req);
-      const response = await handler.fetch(request, {}, {});
+      const response = await handler.fetch(request, {}, { context: { waitUntil: (p) => p } });
       await sendFetchResponse(res, response);
     } catch (error) {
       console.error("SSR error:", error);
