@@ -1,14 +1,24 @@
-# Welcome to your Lovable project
+# Reforma Clara
+
+Landing page institucional para Reforma Tributária Descomplicada.
+
+Inclua: hero section, notícias em tempo real, cards educativos sobre IBS/CBS, 
+
+radar de fontes oficiais, formulário de newsletter, podcast link Spotify, 
+
+header com navegação e footer. Cores: navy (#001F4D), white, cyan (#00B4D8).
+
+Responsivo e moderno.
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/146b9e5b-12fa-4d26-bbf9-d8f6b24771f1).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +30,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
