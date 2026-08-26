@@ -1,4 +1,4 @@
-import { useEffect, useState, Suspense } from "react";
+import { Radio, Headphones } from "lucide-react";
 import { Radio, Headphones } from "lucide-react";
 
 const SPOTIFY_SHOW_ID = "2aS4RALh7e66ZNcx7jU5ec";
