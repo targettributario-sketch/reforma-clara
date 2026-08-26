@@ -62,7 +62,7 @@ export function NewsSection() {
           </div>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Clock className="h-4 w-4" aria-hidden="true" />
-            Atualizado às {lastUpdated}
+            {lastUpdated ? `Atualizado às ${lastUpdated}` : "Atualizando…"}
           </div>
         </div>
 
