@@ -36,14 +36,6 @@ const newsItems = [
 ];
 
 export function NewsSection() {
-  const [lastUpdated, setLastUpdated] = useState<string | null>(null);
-
-  useEffect(() => {
-    setLastUpdated(
-      new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })
-    );
-  }, []);
-
   return (
     <section id="noticias" className="bg-background px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-7xl">
