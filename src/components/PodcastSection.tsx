@@ -1,5 +1,4 @@
 import { Radio, Headphones } from "lucide-react";
-import { Radio, Headphones } from "lucide-react";
 
 const SPOTIFY_SHOW_ID = "2aS4RALh7e66ZNcx7jU5ec";
 
@@ -18,12 +17,6 @@ function SpotifyIcon({ className }: { className?: string }) {
 }
 
 export function PodcastSection() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <section id="podcast" className="bg-background px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-7xl">
@@ -71,9 +64,7 @@ export function PodcastSection() {
               <p className="mt-4 text-lg font-semibold text-foreground">
                 Reforma Tributária Descomplicada
               </p>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Podcast oficial no Spotify
-              </p>
+              <p className="mt-1 text-sm text-muted-foreground">Podcast oficial no Spotify</p>
               <a
                 href={`https://open.spotify.com/show/${SPOTIFY_SHOW_ID}`}
                 target="_blank"
