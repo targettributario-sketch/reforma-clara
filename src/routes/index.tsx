@@ -1,24 +1,45 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero } from "../components/Hero";
+import { NewsSection } from "../components/NewsSection";
+import { EduCards } from "../components/EduCards";
+import { RadarSection } from "../components/RadarSection";
+import { Newsletter } from "../components/Newsletter";
+import { PodcastSection } from "../components/PodcastSection";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Reforma Tributária Descomplicada — Notícias, IBS, CBS e Fontes Oficiais" },
+      {
+        name: "description",
+        content:
+          "Acompanhe a Reforma Tributária brasileira de forma clara. Notícias em tempo real, cards educativos sobre IBS/CBS, radar de fontes oficiais, podcast e newsletter.",
+      },
+      {
+        property: "og:title",
+        content: "Reforma Tributária Descomplicada — Notícias, IBS, CBS e Fontes Oficiais",
+      },
+      {
+        property: "og:description",
+        content:
+          "Acompanhe a Reforma Tributária brasileira de forma clara. Notícias em tempo real, cards educativos sobre IBS/CBS, radar de fontes oficiais, podcast e newsletter.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Hero />
+      <NewsSection />
+      <EduCards />
+      <RadarSection />
+      <PodcastSection />
+      <Newsletter />
+    </>
   );
 }
