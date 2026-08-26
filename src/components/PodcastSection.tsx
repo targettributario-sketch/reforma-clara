@@ -65,29 +65,25 @@ export function PodcastSection() {
             </a>
           </div>
 
-          <div className="rounded-2xl border border-border bg-card p-2 shadow-sm">
-            {mounted ? (
-              <iframe
-                title="Podcast Reforma Tributária Descomplicada no Spotify"
-                src={`https://open.spotify.com/embed/show/${SPOTIFY_SHOW_ID}?utm_source=generator`}
-                width="100%"
-                height="352"
-                allowFullScreen
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-                className="rounded-xl"
-                style={{ border: "none" }}
-              />
-            ) : (
-              <div className="flex aspect-[4/3] w-full items-center justify-center rounded-xl bg-secondary">
-                <div className="text-center">
-                  <SpotifyIcon className="mx-auto h-10 w-10 text-[#1DB954]" />
-                  <p className="mt-3 text-sm font-medium text-muted-foreground">
-                    Carregando player do Spotify…
-                  </p>
-                </div>
-              </div>
-            )}
+          <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+            <div className="flex aspect-[4/3] w-full flex-col items-center justify-center rounded-xl bg-secondary text-center">
+              <SpotifyIcon className="h-12 w-12 text-[#1DB954]" />
+              <p className="mt-4 text-lg font-semibold text-foreground">
+                Reforma Tributária Descomplicada
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Podcast oficial no Spotify
+              </p>
+              <a
+                href={`https://open.spotify.com/show/${SPOTIFY_SHOW_ID}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center gap-2 rounded-lg bg-[#1DB954] px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#1aa34a]"
+              >
+                <SpotifyIcon className="h-4 w-4" />
+                Ouvir agora
+              </a>
+            </div>
           </div>
         </div>
       </div>
