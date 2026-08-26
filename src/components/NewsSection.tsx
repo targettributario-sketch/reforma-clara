@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Newspaper, Clock, ArrowRight, TrendingUp, AlertCircle, FileText } from "lucide-react";
 
