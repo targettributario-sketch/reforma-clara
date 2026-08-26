@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Play, BookOpen } from "lucide-react";
+import capaPodcast from "@/assets/capa-podcast-reforma-tributaria.jpg.asset.json";
 
 export function Hero() {
   return (
