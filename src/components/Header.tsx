@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X, Scale, Newspaper, BookOpen, Radio, Mail, Home } from "lucide-react";
+import capaPodcast from "@/assets/capa-podcast-reforma-tributaria.jpg.asset.json";
 
 const navItems = [
   { to: "/", label: "Início", icon: Home },
