@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
 import { Radio, Headphones } from "lucide-react";
+
+const SPOTIFY_SHOW_ID = "2aS4RALh7e66ZNcx7jU5ec";
 
 function SpotifyIcon({ className }: { className?: string }) {
   return (
@@ -15,6 +18,12 @@ function SpotifyIcon({ className }: { className?: string }) {
 }
 
 export function PodcastSection() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <section id="podcast" className="bg-background px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-7xl">
@@ -46,7 +55,7 @@ export function PodcastSection() {
             </ul>
 
             <a
-              href="https://open.spotify.com/show/example-reforma-tributaria"
+              href={`https://open.spotify.com/show/${SPOTIFY_SHOW_ID}`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#1DB954] px-6 py-3 text-base font-semibold text-white transition-all hover:bg-[#1aa34a] hover:shadow-lg"
@@ -57,17 +66,28 @@ export function PodcastSection() {
           </div>
 
           <div className="rounded-2xl border border-border bg-card p-2 shadow-sm">
-            <iframe
-              title="Podcast Reforma Tributária Descomplicada no Spotify"
-              src="https://open.spotify.com/embed/show/example-reforma-tributaria?utm_source=generator"
-              width="100%"
-              height="352"
-              allowFullScreen
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-              className="rounded-xl"
-              style={{ border: "none" }}
-            />
+            {mounted ? (
+              <iframe
+                title="Podcast Reforma Tributária Descomplicada no Spotify"
+                src={`https://open.spotify.com/embed/show/${SPOTIFY_SHOW_ID}?utm_source=generator`}
+                width="100%"
+                height="352"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                className="rounded-xl"
+                style={{ border: "none" }}
+              />
+            ) : (
+              <div className="flex aspect-[4/3] w-full items-center justify-center rounded-xl bg-secondary">
+                <div className="text-center">
+                  <SpotifyIcon className="mx-auto h-10 w-10 text-[#1DB954]" />
+                  <p className="mt-3 text-sm font-medium text-muted-foreground">
+                    Carregando player do Spotify…
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
