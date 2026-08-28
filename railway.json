@@ -1,4 +1,4 @@
 {
-  "build": "npm run build",
-  "start": "npm run start"
+  "build": "vite build && cp dist/server/index.mjs dist/server/server.js",
+  "start": "node dist/server/server.js"
 }
