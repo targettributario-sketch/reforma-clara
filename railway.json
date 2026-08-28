@@ -1,4 +1,4 @@
 {
-  "build": "vite build && echo 'export * from \"./index.mjs\"' > dist/server/server.js",
-  "start": "node dist/server/index.mjs"
+  "build": "npm run build",
+  "start": "npm run start"
 }

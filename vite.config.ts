@@ -15,5 +15,20 @@ export default defineConfig({
   nitro: {
     // Force Nitro to emit a Node.js-compatible server entry so Railway can run it directly.
     preset: "node-server",
+    output: {
+      dir: "dist",
+      serverDir: "dist/server",
+      publicDir: "dist/client",
+    },
+    // Nitro 3 names bundle entries through the bundler output configuration.
+    rollupConfig: {
+      output: {
+        entryFileNames: "server.js",
+      },
+    },
+  } as {
+    preset: string;
+    output: { dir: string; serverDir: string; publicDir: string };
+    rollupConfig: { output: { entryFileNames: string } };
   },
 });
