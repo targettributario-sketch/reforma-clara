@@ -26,5 +26,7 @@ export default defineConfig({
         entryFileNames: "server.js",
       },
     },
+  } as Parameters<typeof defineConfig>[0]["nitro"] & {
+    rollupConfig: { output: { entryFileNames: string } };
   },
 });
