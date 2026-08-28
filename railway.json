@@ -1,4 +1,4 @@
 {
-  "build": "bun install && bun run build",
-  "start": "node scripts/server.js"
+  "build": "bun install && bun run build:dev",
+  "start": "bun run preview"
 }
