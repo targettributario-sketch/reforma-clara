@@ -6,29 +6,4 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-export default defineConfig({
-  tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
-    server: { entry: "server" },
-  },
-  nitro: {
-    // Force Nitro to emit a Node.js-compatible server entry so Railway can run it directly.
-    preset: "node-server",
-    output: {
-      dir: "dist",
-      serverDir: "dist/server",
-      publicDir: "dist/client",
-    },
-    // Nitro 3 names bundle entries through the bundler output configuration.
-    rollupConfig: {
-      output: {
-        entryFileNames: "server.js",
-      },
-    },
-  } as {
-    preset: string;
-    output: { dir: string; serverDir: string; publicDir: string };
-    rollupConfig: { output: { entryFileNames: string } };
-  },
-});
+export default defineConfig({});
