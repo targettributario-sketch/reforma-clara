@@ -1,4 +1,8 @@
 {
-  "build": "vite build",
-  "start": "npm run preview"
+  "build": {
+    "buildCommand": "npm run build"
+  },
+  "deploy": {
+    "startCommand": "npm run preview"
+  }
 }
