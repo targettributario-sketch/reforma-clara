@@ -1,4 +1,4 @@
 {
-  "build": "bun install --frozen-lockfile && bun run build",
-  "start": "bun run start"
+  "build": "bun install && bun run build",
+  "start": "node dist/server/index.mjs"
 }
