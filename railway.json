@@ -1,4 +1,4 @@
 {
-  "build": "bun install && bun run build",
+  "build": "vite build",
   "start": "node dist/server/index.mjs"
 }
