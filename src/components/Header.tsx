@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, Scale, Newspaper, BookOpen, Radio, Mail, Home } from "lucide-react";
+import { Menu, X, Scale, Newspaper, BookOpen, Radio, Mail, Home, ExternalLink, ChevronDown } from "lucide-react";
 import capaPodcast from "@/assets/capa-podcast-reforma-tributaria.jpg.asset.json";
 
 const navItems = [
@@ -12,10 +12,19 @@ const navItems = [
   { to: "/newsletter", label: "Newsletter", icon: Mail },
 ];
 
+const SIMULADOR_URL = "https://amused-purpose-production-609a.up.railway.app/";
+
 const linkBaseClass =
   "flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors";
 const linkInactiveClass = "text-muted-foreground hover:bg-secondary hover:text-foreground";
 const linkActiveClass = "bg-secondary text-foreground";
+
+function scrollToNewsletter() {
+  const el = document.getElementById("newsletter");
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -57,13 +66,24 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
-          <Link
-            to="/newsletter"
-            className="inline-flex items-center justify-center rounded-md bg-cyan px-4 py-2 text-sm font-semibold text-cyan-foreground transition-colors hover:bg-cyan/90"
+        <div className="hidden items-center gap-2 lg:flex">
+          <button
+            type="button"
+            onClick={scrollToNewsletter}
+            className="inline-flex items-center justify-center gap-1.5 rounded-md px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
           >
-            Receba resumos
-          </Link>
+            Newsletter
+            <ChevronDown className="h-3.5 w-3.5 rotate-180" aria-hidden="true" />
+          </button>
+          <a
+            href={SIMULADOR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-1.5 rounded-md bg-cyan px-4 py-2 text-sm font-semibold text-cyan-foreground transition-colors hover:bg-cyan/90"
+          >
+            Simulador Tributário
+            <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+          </a>
         </div>
 
         <button
@@ -92,13 +112,27 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              to="/newsletter"
-              onClick={() => setMobileOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-md bg-cyan px-4 py-3 text-sm font-semibold text-cyan-foreground transition-colors hover:bg-cyan/90"
+            <button
+              type="button"
+              onClick={() => {
+                setMobileOpen(false);
+                setTimeout(scrollToNewsletter, 150);
+              }}
+              className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-md px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
             >
-              Receba resumos
-            </Link>
+              Newsletter
+              <ChevronDown className="h-3.5 w-3.5 rotate-180" aria-hidden="true" />
+            </button>
+            <a
+              href={SIMULADOR_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="inline-flex items-center justify-center gap-1.5 rounded-md bg-cyan px-4 py-3 text-sm font-semibold text-cyan-foreground transition-colors hover:bg-cyan/90"
+            >
+              Simulador Tributário
+              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
           </nav>
         </div>
       )}
