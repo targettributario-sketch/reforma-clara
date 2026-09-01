@@ -112,13 +112,27 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              to="/newsletter"
-              onClick={() => setMobileOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-md bg-cyan px-4 py-3 text-sm font-semibold text-cyan-foreground transition-colors hover:bg-cyan/90"
+            <button
+              type="button"
+              onClick={() => {
+                setMobileOpen(false);
+                setTimeout(scrollToNewsletter, 150);
+              }}
+              className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-md px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
             >
-              Receba resumos
-            </Link>
+              Newsletter
+              <ChevronDown className="h-3.5 w-3.5 rotate-180" aria-hidden="true" />
+            </button>
+            <a
+              href={SIMULADOR_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="inline-flex items-center justify-center gap-1.5 rounded-md bg-cyan px-4 py-3 text-sm font-semibold text-cyan-foreground transition-colors hover:bg-cyan/90"
+            >
+              Simulador Tributário
+              <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
           </nav>
         </div>
       )}
