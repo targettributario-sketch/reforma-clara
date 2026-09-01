@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, Scale, Newspaper, BookOpen, Radio, Mail, Home } from "lucide-react";
+import { Menu, X, Scale, Newspaper, BookOpen, Radio, Mail, Home, ExternalLink, ChevronDown } from "lucide-react";
 import capaPodcast from "@/assets/capa-podcast-reforma-tributaria.jpg.asset.json";
 
 const navItems = [
@@ -11,6 +11,8 @@ const navItems = [
   { to: "/podcast", label: "Podcast", icon: Radio },
   { to: "/newsletter", label: "Newsletter", icon: Mail },
 ];
+
+const SIMULADOR_URL = "https://amused-purpose-production-609a.up.railway.app/";
 
 const linkBaseClass =
   "flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors";
