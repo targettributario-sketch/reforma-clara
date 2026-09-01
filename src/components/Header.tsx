@@ -19,6 +19,13 @@ const linkBaseClass =
 const linkInactiveClass = "text-muted-foreground hover:bg-secondary hover:text-foreground";
 const linkActiveClass = "bg-secondary text-foreground";
 
+function scrollToNewsletter() {
+  const el = document.getElementById("newsletter");
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
