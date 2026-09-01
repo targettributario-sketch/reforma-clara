@@ -66,13 +66,24 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
-          <Link
-            to="/newsletter"
-            className="inline-flex items-center justify-center rounded-md bg-cyan px-4 py-2 text-sm font-semibold text-cyan-foreground transition-colors hover:bg-cyan/90"
+        <div className="hidden items-center gap-2 lg:flex">
+          <button
+            type="button"
+            onClick={scrollToNewsletter}
+            className="inline-flex items-center justify-center gap-1.5 rounded-md px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
           >
-            Receba resumos
-          </Link>
+            Newsletter
+            <ChevronDown className="h-3.5 w-3.5 rotate-180" aria-hidden="true" />
+          </button>
+          <a
+            href={SIMULADOR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-1.5 rounded-md bg-cyan px-4 py-2 text-sm font-semibold text-cyan-foreground transition-colors hover:bg-cyan/90"
+          >
+            Simulador Tributário
+            <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+          </a>
         </div>
 
         <button
