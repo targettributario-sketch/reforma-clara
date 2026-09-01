@@ -26,6 +26,20 @@ function scrollToNewsletter() {
   }
 }
 
+function scrollToPodcast() {
+  const el = document.getElementById("podcast");
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+function scrollToEducacao() {
+  const el = document.getElementById("educacao");
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -67,6 +81,24 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
+          <button
+            type="button"
+            onClick={scrollToEducacao}
+            disabled
+            title="Em breve"
+            className="inline-flex items-center justify-center gap-1.5 rounded-md px-3 py-2 text-sm font-semibold text-foreground opacity-60 transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:hover:bg-transparent"
+          >
+            <BookOpen className="h-3.5 w-3.5" aria-hidden="true" />
+            Educação Fiscal
+          </button>
+          <button
+            type="button"
+            onClick={scrollToPodcast}
+            className="inline-flex items-center justify-center gap-1.5 rounded-md px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
+          >
+            <Radio className="h-3.5 w-3.5" aria-hidden="true" />
+            Podcast
+          </button>
           <button
             type="button"
             onClick={scrollToNewsletter}
@@ -116,9 +148,33 @@ export function Header() {
               type="button"
               onClick={() => {
                 setMobileOpen(false);
+                setTimeout(scrollToEducacao, 150);
+              }}
+              disabled
+              title="Em breve"
+              className="inline-flex items-center justify-center gap-1.5 rounded-md px-4 py-3 text-sm font-semibold text-foreground opacity-60 transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:hover:bg-transparent"
+            >
+              <BookOpen className="h-3.5 w-3.5" aria-hidden="true" />
+              Educação Fiscal
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setMobileOpen(false);
+                setTimeout(scrollToPodcast, 150);
+              }}
+              className="inline-flex items-center justify-center gap-1.5 rounded-md px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
+            >
+              <Radio className="h-3.5 w-3.5" aria-hidden="true" />
+              Podcast
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setMobileOpen(false);
                 setTimeout(scrollToNewsletter, 150);
               }}
-              className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-md px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
+              className="inline-flex items-center justify-center gap-1.5 rounded-md px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
             >
               Newsletter
               <ChevronDown className="h-3.5 w-3.5 rotate-180" aria-hidden="true" />
