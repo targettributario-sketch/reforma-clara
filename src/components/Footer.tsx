@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Scale, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
+import capaPodcast from "@/assets/capa-podcast-reforma-tributaria.jpg.asset.json";
 
 const links = {
   conteudo: [
@@ -23,8 +24,14 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                <Scale className="h-5 w-5" aria-hidden="true" />
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-cyan/40 shadow-sm shadow-cyan/10">
+                <img
+                  src={capaPodcast.url}
+                  alt="Logo Reforma Tributária Descomplicada"
+                  className="h-full w-full object-cover"
+                  width={40}
+                  height={40}
+                />
               </div>
               <div className="flex flex-col">
                 <span className="text-sm font-bold leading-tight text-foreground">
@@ -83,7 +90,9 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-cyan" aria-hidden="true" />
-                contato@reformatributaria.descomplicada
+                <a href="mailto:targettributario@gmail.com" className="hover:text-cyan">
+                  targettributario@gmail.com
+                </a>
               </li>
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-cyan" aria-hidden="true" />
